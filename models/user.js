@@ -79,10 +79,10 @@ module.exports = {
 
     try{
       console.log("in update");
-      const listuser = await users.find({id:{$eq:id}});
+      const listuser = await users.find({snapid:{$eq:id}});
       const docid = (Object.keys(listuser)[0]);
       
-      let user = await users.findOne({id:{$eq:id}});
+      let user = await users.findOne({snapid:{$eq:id}});
       let arr = user.completed;
       // console.log(arr);
       if(!arr[symb] || arr[symb] == 0){
