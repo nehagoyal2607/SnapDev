@@ -124,7 +124,7 @@
                               <span class="field__label">Description</span>
                             </span>
                           </label>    
-                
+                          <div class="my-bitmoji-stickerpicker-icon-target"></div>
                         <input type='submit'class="btn btn-get-started" style="display: block;padding: 2px 25px"/>
                     </form>
                 </div>
@@ -165,7 +165,49 @@
     <!-- End Footer --><!-- End Footer -->
     
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    
+      <script>
+        window.snapKitInit = function () {
+          // Argument 1
+          var bitmojiWebPickerIconClass = "my-bitmoji-stickerpicker-icon-target";
+  
+          // Argument 2
+          var uiOptions = {
+            onStickerPickCallback: function onStickerPickCallback(bitmojiImgURL) {
+              console.log(bitmojiImgURL);
+            },
+            webpickerPosition: "bottomRight",
+          };
+  
+          // Argument 3
+          var loginParamsObj = {
+            clientId: "b0165597-c84d-4eb7-91df-2f26b8534a5d",
+            redirectURI: window.location.protocol+'//' + window.location.host+ '/login/snapchat/callback',
+            scopeList: [
+              // the list of scopes you are approved for
+              "user.bitmoji.avatar",
+              "user.display_name",
+            ],
+          };
+  
+          // Mount Bitmoji Icon(s)
+          snap.bitmojikit.mountBitmojiStickerPickerIcons(
+            bitmojiWebPickerIconClass,
+            uiOptions,
+            loginParamsObj
+          );
+        };
+  
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+          var js,
+            sjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://sdk.snapkit.com/js/v1/login_bitmoji.js";
+          sjs.parentNode.insertBefore(js, sjs);
+        })(document, "script", "bitmojikit-sdk");
+      </script>
        <!-- Vendor JS Files -->
        <script src="/Maxim/assets/vendor/aos/aos.js"></script>
        <script src="/Maxim/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

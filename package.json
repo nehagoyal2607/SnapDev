@@ -22,11 +22,13 @@
     "express-sanitizer": "^1.0.6",
     "express-session": "^1.17.2",
     "fingerpose": "0.0.2",
+    "jimp": "^0.16.1",
     "nodemon": "^2.0.12",
     "paginationjs": "^2.1.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-snapchat": "^1.0.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "window": "^4.2.7"
   }
 }

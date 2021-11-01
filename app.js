@@ -6,6 +6,9 @@ const expressSanitizer = require("express-sanitizer");
 const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
 const fp = require("fingerpose");
+const Window = require('window');
+ 
+const window = new Window();
 const passport = require('passport');
 const SnapchatStrategy = require('passport-snapchat').Strategy;
 
@@ -17,18 +20,20 @@ const wordsmodel = require('./models/words');
 const words = require("./models/words");
 
 require('dotenv').config();
+
 passport.use(new SnapchatStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'https://unify-asl-app.herokuapp.com/login/snapchat/callback',
-    profileFields: ['id', 'displayName', 'bitmoji'],
-    scope: ['user.display_name', 'user.bitmoji.avatar'],
-    pkce: true,
-    state: true
+	clientID: process.env.CLIENT_ID,
+	clientSecret: process.env.CLIENT_SECRET,
+	callbackURL: 'https://unify-asl-app.herokuapp.com/login/snapchat/callback',
+	profileFields: ['id', 'displayName', 'bitmoji'],
+	scope: ['user.display_name', 'user.bitmoji.avatar'],
+	pkce: true,
+	state: true
   },
   function(accessToken, refreshToken, profile, cb) {
-    return cb(null, profile);
+	return cb(null, profile);
   }));
+
   passport.serializeUser(function(user, cb) {
 	cb(null, user);
   });
@@ -61,7 +66,6 @@ app.use(async function(req,res,next){
 	// console.log(currentUser);
 	next();
 })
-
 
 
 const isLoggedIn = function(req,res,next){
@@ -278,6 +282,7 @@ app.get("/", async function(req, res){
 	// await wordsmodel.addSign({
 	
 	// });
+	
 	const sample = await words.getSign();
 	if(req.session.user_id!=null){
 		res.redirect("dash");
