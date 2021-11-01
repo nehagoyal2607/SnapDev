@@ -148,10 +148,11 @@
                             <div class="col-md-12">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <div class="media flex-wrap w-100 align-items-center"> <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" class="d-block ui-w-40" alt="" style="
+                                        <div class="media flex-wrap w-100 align-items-center"> <img src=<%=threads[i].authorImg%>  alt="" style="
                                           width: 64px;
                                           height: 64px;
-                                      ">
+                                      "
+                                      class="d-block ui-w-40">
                                             <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true"><%=threads[i].author%></a>
                                                 <div class="text-muted large"><a href="/forum/<%=threads[i].title%>"><%=threads[i].title%></a></div>
                                             </div>

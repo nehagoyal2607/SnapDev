@@ -4,7 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta property="og:site_name" content="Snapchat" />
+  <meta property="og:title" content="The Fastest Way to Share a Moment!" />
+  <!-- The following are optional -->
+  <meta
+    property="snap:sticker"
+    content="/imgs/sticker.png"
+  />
+  <meta property="snap:app_id" content="81d37598-2121-48ed-b5ba-39550fcb541f
+  " />
+  
   <title>Practice</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -207,13 +216,20 @@
 
       </div>
     </section><!-- End Breadcrumbs Section -->
-
+    
     <section class="inner-page">
       <div class="sign-page-contain container">
         <div class="sign-img-left">
           <img src="<%= sample.alpImg[symb]%>" style="border-radius: 2%;">
         </div>
         <div class="sign-img-mid">
+          <div
+      class="snapchat-creative-kit-share"
+      data-theme="dark"
+      data-size="large"
+      data-text="false"
+      data-share-url="https://unify.com/practice/1"
+    ></div>
           <div>
             <p>
               Current Status
@@ -241,6 +257,18 @@
   <%- include ("./partials/footer.ejs") %>
   <!-- End Footer -->
   <!-- Vendor JS Files -->
+  <script>
+    // Load the SDK asynchronously
+    (function (d, s, id) {
+      var js,
+        sjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://sdk.snapkit.com/js/v1/create.js";
+      sjs.parentNode.insertBefore(js, sjs);
+    })(document, "script", "snapkit-creative-kit-sdk");
+  </script>
   <script src="/Maxim/assets/vendor/aos/aos.js"></script>
   <script src="/Maxim/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/Maxim/assets/vendor/glightbox/js/glightbox.min.js"></script>

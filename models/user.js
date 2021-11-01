@@ -28,10 +28,11 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 module.exports = {
   addUser: async (user) => {
     const users = await getUsersCollection();
+    // console.log(user.id);
     const newUserId = await users.create({
-      id: uuidv4(),
+      
       username: user.username,
-      password: user.password,
+      snapid: user.id,
       score : 0,
       completed : new Array(26).fill(0)
     });
@@ -44,9 +45,8 @@ module.exports = {
     try {
       const res = await users.find();
       return Object.keys(res).map((itemId) => ({
-        id: itemId,
+        snapid: res[itemId].snapid,
         username: res[itemId].username,
-        password: res[itemId].password,
         score: res[itemId].score,
         completed: res[itemId].completed
       }));
@@ -68,7 +68,7 @@ module.exports = {
   getUserById: async(id) => {
     const users = await getUsersCollection();
     try{
-      const user = await users.findOne({id:{$eq:id}});
+      const user = await users.findOne({snapid:{$eq:id}});
       return user;
     }catch(e){
       return {};

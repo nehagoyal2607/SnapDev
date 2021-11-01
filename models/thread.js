@@ -30,6 +30,7 @@ module.exports = {
     const threads = await getThreadsCollection();
     await threads.create({
       author:thread.author,
+      authorImg: thread.authorImg,
       title:thread.title,
       description: thread.description,
       comments:[]
@@ -68,6 +69,7 @@ module.exports = {
     try {
       const res = await webs.find();
       return Object.keys(res).map((itemId) => ({
+        authorImg:res[itemId].authorImg,
         author:res[itemId].author,
         title:res[itemId].title,
         description: res[itemId].description,
