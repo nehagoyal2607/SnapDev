@@ -24,7 +24,7 @@ require('dotenv').config();
 passport.use(new SnapchatStrategy({
 	clientID: process.env.CLIENT_ID,
 	clientSecret: process.env.CLIENT_SECRET,
-	callbackURL: 'https://unify-asl-app.herokuapp.com/login/snapchat/callback',
+	callbackURL: 'http://localhost:3000/login/snapchat/callback',
 	profileFields: ['id', 'displayName', 'bitmoji'],
 	scope: ['user.display_name', 'user.bitmoji.avatar'],
 	pkce: true,
@@ -272,7 +272,7 @@ app.get("/", async function(req, res){
 	// console.log(updated);
 	// const currentUser = await users.getUserById("AESIJFYBr5kbNStKXF+CfYGxU2L7Ev5uWtv6dkG3NeKP4rT");
 	// console.log(currentUser);
-
+	// console.log(req.user);
 	// const sample = await signs.getSign();
 	// console.log(sample);
 	// await webs.deleteWebinars();

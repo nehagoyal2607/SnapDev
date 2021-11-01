@@ -110,7 +110,7 @@
                 <div class="container-top mb-4" style="margin-top:2em">
                     
                         <div class="btn btn-get-started scrollto " onclick="createToggle()" style="cursor: pointer;">Add Comment</div>
-                        
+
                     <form id="commentInputs" class="page container-top" action='/forum/<%=data.title%>/addComment' method = 'POST' style="display: none;">
                         <label class="field field_v1">
                             <input class="field__input" name ="title" placeholder="e.g. Introductions" required>
@@ -119,12 +119,13 @@
                             </span>
                           </label>
                           <label class="field field_v2">
-                            <input type="text-area" class="field__input" name = "description" placeholder="e.g. Tell us about yourself" required>
+                            <input type="text-area" class="field__input" id="bitmoji-input" name = "description" placeholder="e.g. Tell us about yourself" required>
+                            <div class="my-bitmoji-stickerpicker-icon-target"></div>
                             <span class="field__label-wrap">
                               <span class="field__label">Description</span>
                             </span>
                           </label>    
-                          <div class="my-bitmoji-stickerpicker-icon-target"></div>
+                          
                         <input type='submit'class="btn btn-get-started" style="display: block;padding: 2px 25px"/>
                     </form>
                 </div>
@@ -146,7 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <p><%=data.comments[i].description%></p>
+                                    <p><%-data.comments[i].description%></p>
                                 </div>
                                 <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                                     
@@ -166,6 +167,8 @@
     
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
       <script>
+        var inputField = document.querySelector("#bitmoji-input").value;
+        console.log(inputField)
         window.snapKitInit = function () {
           // Argument 1
           var bitmojiWebPickerIconClass = "my-bitmoji-stickerpicker-icon-target";
@@ -173,15 +176,20 @@
           // Argument 2
           var uiOptions = {
             onStickerPickCallback: function onStickerPickCallback(bitmojiImgURL) {
+              const html = `<div>
+              <img src="${bitmojiImgURL}" alt="">
+            </div>`;
+            inputField = bitmojiImgURL;
               console.log(bitmojiImgURL);
             },
-            webpickerPosition: "bottomRight",
+            webpickerPosition: "topLeft",
           };
-  
+          console.log(inputField)
           // Argument 3
           var loginParamsObj = {
             clientId: "b0165597-c84d-4eb7-91df-2f26b8534a5d",
-            redirectURI: window.location.protocol+'//' + window.location.host+ '/login/snapchat/callback',
+  
+            redirectURI: "http://localhost:3000/forum/hi",
             scopeList: [
               // the list of scopes you are approved for
               "user.bitmoji.avatar",
