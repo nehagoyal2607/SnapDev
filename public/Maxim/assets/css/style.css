@@ -4,7 +4,7 @@
 --------------------------------------------------------------*/
 body {
   /* font-family: "Open Sans", sans-serif; */
-  font-family: "Raleway", sans-serif;
+  font-family: "Graphik", sans-serif;
   color: #444444;
   /* letter-spacing: 1px; */
 
@@ -127,8 +127,8 @@ canvas{
   border-radius: 4px;
   transition: 0.5s;
   border: 1.5px solid rgb(94, 94, 94);
-  color: #fff;
-  background-color: #ffc2c2;
+  color: #000;
+  background-color: #ffffff;
 }
 .preloader {
   position: fixed;
@@ -152,8 +152,9 @@ canvas{
   margin: auto;
 }
 .portfolio-info .btn-get-started:hover {
-  border-color: #1bac91;
-  background: #1bac91;
+  color: #fff;
+  border-color: #ffffff;
+  background: #000000;
 }
 .leaderboard-container{
   width: 600px;
@@ -192,8 +193,11 @@ canvas{
 }
 .translateItems{
   margin: 0.1em;
+  /* border: #000 2px solid; */
 }
-
+.translateItems > img{
+  border: #000 1px solid;
+}
 #listingTable img{
   height: 350px;
   width: 275px;
@@ -280,7 +284,7 @@ canvas{
 }
 
 .container-top .btn-get-started:hover {
-  border-color: #1bac91;
+  border-color: #ffffff;
   /* padding: 8px 30px; */
   background: rgb(0, 0, 0);
 }
@@ -300,7 +304,8 @@ canvas{
   height: 70px;
   transition: all 0.5s;
   z-index: 997;
-  background: #000;
+  background: #fff;
+  color: #000;
 }
 
 #header .logo h1 {
@@ -316,7 +321,7 @@ canvas{
   color: white;
 }
 #header .logo h1 a, #header .logo h1 a:hover {
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
@@ -364,7 +369,7 @@ canvas{
   justify-content: space-between;
   padding: 12px 0;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000;
   white-space: nowrap;
   transition: 0.3s;
   position: relative;
@@ -383,19 +388,20 @@ canvas{
   height: 2px;
   bottom: 3px;
   left: 0;
-  background-color: #1bac91;
+  background-color: #000000;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
 }
 
 .navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+  color: #000;  
   visibility: visible;
   width: 100%;
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #fff;
+  color: #000;
 }
 
 .navbar .dropdown ul {
@@ -573,7 +579,7 @@ canvas{
   width: 100%;
   height: calc(100vh - 70px);
   background: url("../img/hero-bg.jpg") center center;
-  background-size: cover;
+  background-size:cover;
   position: relative;
   margin-top: 70px;
   padding: 0;
@@ -622,8 +628,8 @@ canvas{
 }
 
 #hero .btn-get-started:hover {
-  border-color: #1bac91;
-  background: #1bac91;
+  border-color: #ffffff;
+  background: #000000;
 }
 
 @media (min-width: 1024px) {
@@ -660,7 +666,8 @@ section {
 }
 
 .section-bg {
-  background-color: #f2f9f8;
+  /* background-color: #FFFC00;  #a6bdff #fdebff */
+  background-color: #a6bdff;
 }
 
 .section-title {
