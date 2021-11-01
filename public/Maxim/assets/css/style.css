@@ -27,6 +27,16 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+#loginWithSnapButton{
+  background-color: #000;
+  text-transform: none !important;
+  padding: 5px 10px !important;
+  margin: none !important;
+  color: #fff;
+}
+#loginWithSnapButton > img{
+  padding: 8px;
+}
 .back-to-top {
   position: fixed;
   visibility: hidden;
@@ -116,6 +126,7 @@ canvas{
   border-color: #1bac91 !important;
   background: #1bac91 !important;
 }
+
 .portfolio-info .btn-get-started {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
@@ -184,8 +195,18 @@ canvas{
 }
 .translateResult{
   margin-top: 2em;
-  max-width: 1116px;
+  width: 800px;
   min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 0.8;
+}
+.translateResult2{
+  margin-top: 2em;
+  max-width: 1116px;
+  /* min-height: 150px; */
   display: flex;
   justify-content: center;
   align-items: center;
