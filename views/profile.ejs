@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="./Maxim/assets/img/favicon.png" rel="icon">
+    <link href="./Maxim/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="./Maxim/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="./Maxim/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./Maxim/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="./Maxim/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="./Maxim/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="./Maxim/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="./Maxim/assets/css/style.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Profile</title>
+    <style>
+
+        /* width */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1; 
+        }
+         
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: #888; 
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555; 
+        }
+        
+svg {
+  width: 114px;
+  height: 114px;
+  margin: 1em;
+}
+
+.bg {
+  fill: none;
+  stroke-width: 12px;
+  stroke: #1A2C34;
+}
+
+[class^="meter-"] {
+  fill: none;
+  stroke-width: 9px;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  
+}
+
+.meter-1 {
+  stroke-dasharray: 270;
+  /* stroke-dashoffset: 0; */
+  stroke: #1bac91;
+  animation: progress-1 1s ease-out;
+}
+
+@keyframes progress-1 {
+    from {
+        stroke-dashoffset: 270;
+    }
+    to {
+        stroke-dashoffset: <%=270-(user.score/260*270)%>;
+    }
+}
+
+      </style>
+</head>
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+    
+          <div class="logo">
+            <h1><a href="index.html">Unify</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="/">Home</a></li>
+              <li><a class="nav-link scrollto " href="/gesture">Talk With Signs</a></li>
+              <li><a class="nav-link scrollto" href="/dash#portfolio">Practice</a></li>
+              <li class="dropdown"><a href="#"><span>Translate</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="/translate">English To ASL</a></li>
+                  <li><a href="/translateTwo">ASL to English</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="/pagination">Common Words</a></li>
+              <li class="dropdown"><a href="#"><span>Connect</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="/webinar">Webinar</a></li>
+                  <li><a href="/forum">Forum</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto active" href="/profile">Profile</a></li>
+              <li><a class="nav-link scrollto" href="/logout">Log Out</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header><!-- End Header -->
+      <main id="main">
+        <section class="breadcrumbs">
+            <div class="row px-4" >
+                <div class="col-md-6 mr-auto">
+                    <!-- Profile widget -->
+                    <div class="bg-white shadow rounded overflow-hidden">
+                        <div class="px-4 pt-0 pb-4 cover" style="height:8em">
+                            <div class="media align-items-end profile-head">
+                                <div class="profile mr-3"><img src="./Maxim/assets/img/neutral_avatar.jpg" alt="..." width="130" class="" style="border-radius: 5%; "></div>
+                                <div class="media-body mb-5 text-white">
+                                    <h4 class="mt-0 mb-0"><%=user.username%></h4>
+                                    <!-- <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>New York</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="bg-light p-4 d-flex justify-content-end text-center">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="px-4 pt-5 pb-1">
+                            
+                            <div class="p-1 rounded shadow-sm bg-light">
+                                <h5 class="mb-0 mt-1 ml-1">Progress </span></h5>
+                                <div class="num">
+                                  <h2 style="position: absolute; margin-top: 0.2em; margin-left: 1em;"><%=(user.score/260*100).toFixed(0)%><span>%</span></h2>
+                                </div>
+                                <p class="font-italic mb-0" style="text-align: center;">
+                                    <svg style="margin:0">
+                                        <circle class="bg" cx="51" cy="51" r="45"></circle>
+                                        <circle class="meter-1" cx="63" cy="51" r="45" style="stroke-dashoffset: <%=270-(user.score/260*270)%>;"></circle>
+                                    </svg>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="py-1 px-4">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h5 class="mb-0">Signs Conquered YAY!</h5><a href="/dash" class="btn btn-link text-muted">Practice More</a>
+                            </div>
+                            <div class="row" style="height:150px; overflow-y:auto;">
+                                <%for(let i=0; i<26; i++){%>
+                                    <%if(user.completed[i] == 1){%>
+                                        <div class="col-lg-3 mb-2 pr-lg-1">
+                                            <img src="<%=signs.alpImg[i]%>" alt="" class="img-fluid rounded shadow-sm" style="height: 140px;">
+                                        </div>
+                                    <%}%>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-auto ml-auto">
+                    <div class="leaderboard-container" style="margin-right: 3em;
+                    margin-left: auto;">
+              
+                        <div class="lb-main-row">
+                          <div>Rank</div>
+                          <div>Score</div>
+                        </div>
+                        <%for(let i=0; i<users.length; i++){%>
+                          <div class="lb-sub-row">
+                            <div><%=users[i].username%></div>
+                            <div><%=users[i].score%></div>
+                          </div>
+                        <%}%>
+                        
+                       
+                    </div>
+                        
+                      
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- ======= Footer ======= -->
+    <%- include ("./partials/footer.ejs") %>
+    <!-- End Footer -->
+    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
+       <!-- Vendor JS Files -->
+       <script src="./Maxim/assets/vendor/aos/aos.js"></script>
+       <script src="./Maxim/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+       <script src="./Maxim/assets/vendor/glightbox/js/glightbox.min.js"></script>
+       <script src="./Maxim/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+       <script src="./Maxim/assets/vendor/php-email-form/validate.js"></script>
+       <script src="./Maxim/assets/vendor/swiper/swiper-bundle.min.js"></script>
+     
+       <!-- Template Main JS File -->
+       <script src="./Maxim/assets/js/main.js"></script>
+</body>
+</html>

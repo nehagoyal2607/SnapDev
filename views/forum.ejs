@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Forum</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+     
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+  </style>
+  <!-- Favicons -->
+  <link href="/Maxim/assets/img/favicon.png" rel="icon">
+  <link href="/Maxim/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/Maxim/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/Maxim/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Maxim/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/Maxim/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/Maxim/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/Maxim/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/Maxim/assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/comments.css">
+  <!-- =======================================================
+  * Template Name: Maxim - v4.3.0
+  * Template URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <script>
+    function createToggle(){
+     var x = document.getElementById("commentInputs");
+     if (x.style.display === "block") {
+       x.style.display = "none";
+     } else {
+       x.style.display = "block";
+     }
+    }
+  </script>
+</head>
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+    
+          <div class="logo">
+            <h1><a href="index.html">Unify</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="/">Home</a></li>
+              <li><a class="nav-link scrollto" href="/dash#portfolio">Practice</a></li>
+              <li><a class="nav-link scrollto " href="/gesture">Talk With Signs</a></li>
+              <li class="dropdown"><a href="#"><span>Translate</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="/translate">English To ASL</a></li>
+                  <li><a href="/translateTwo">ASL to English</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="/pagination">Common Words</a></li>
+              <li class="dropdown"><a href="#" class="active"><span>Connect</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="/webinar">Webinar</a></li>
+                  <li><a href="/forum">Forum</a></li>
+                </ul>
+              </li>
+              <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
+              <li><a class="nav-link scrollto" href="/logout">Log Out</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+    </header><!-- End Header -->
+    <section class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Forum</h2>
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li>Forum</li>
+            </ol>
+          </div>
+  
+        </div>
+      </section>
+    <main id="main">
+        <section class="container pt-0">
+            <div>
+                <div class="container-top mb-4" style="margin-top:2em">
+                    
+                    <div class="btn btn-get-started scrollto " onclick="createToggle()" style="cursor: pointer;">Add New Topic</div>
+                    
+                <form id="commentInputs" class="page container-top" action='/forum' method = 'POST' style="display: none;">
+                    <label class="field field_v1">
+                        <input class="field__input" name ="title" placeholder="e.g. Introductions" required>
+                        <span class="field__label-wrap">
+                          <span class="field__label">Title</span>
+                        </span>
+                      </label>
+                      <label class="field field_v2">
+                        <input type="text-area" class="field__input" name = "description" placeholder="e.g. Tell us about yourself" required>
+                        <span class="field__label-wrap">
+                          <span class="field__label">Description</span>
+                        </span>
+                      </label>    
+            
+                    <input type='submit'class="btn btn-get-started" style="display: block;padding: 2px 25px"/>
+                </form>
+            </div>
+                <!-- <form action='/forum' method = 'POST'>
+                    <input type="text" name="title">
+                    <input type="text" name="description">
+                    <input type='submit'>
+                </form> -->
+                <%for(let i=0; i<threads.length;i++){%>
+                    <div class="container-fluid mt-100">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <div class="media flex-wrap w-100 align-items-center"> <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" class="d-block ui-w-40" alt="" style="
+                                          width: 64px;
+                                          height: 64px;
+                                      ">
+                                            <div class="media-body ml-3"> <a href="javascript:void(0)" data-abc="true"><%=threads[i].author%></a>
+                                                <div class="text-muted large"><a href="/forum/<%=threads[i].title%>"><%=threads[i].title%></a></div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><%=threads[i].description%></p>
+                                    </div>
+                                    <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                                        <p>
+                                          <%=threads[i].comments.length%> Comments
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                <%}%>
+            </div>
+        </section>
+    </main>
+    <!-- ======= Footer ======= -->
+    <%- include ("./partials/footer.ejs") %>
+    <!-- End Footer --><!-- End Footer -->
+    
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
+       <!-- Vendor JS Files -->
+       <script src="/Maxim/assets/vendor/aos/aos.js"></script>
+       <script src="/Maxim/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+       <script src="/Maxim/assets/vendor/glightbox/js/glightbox.min.js"></script>
+       <script src="/Maxim/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+       <script src="/Maxim/assets/vendor/php-email-form/validate.js"></script>
+       <script src="/Maxim/assets/vendor/swiper/swiper-bundle.min.js"></script>
+     
+       <!-- Template Main JS File -->
+       <script src="/Maxim/assets/js/main.js"></script>
+    
+    </body>
+    
+</html>

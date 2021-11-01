@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Translator</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ <!-- Favicons -->
+ <link href="./Maxim/assets/img/favicon.png" rel="icon">
+ <link href="./Maxim/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+ <!-- Vendor CSS Files -->
+ <link href="./Maxim/assets/vendor/aos/aos.css" rel="stylesheet">
+ <link href="./Maxim/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link href="./Maxim/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+ <link href="./Maxim/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+ <link href="./Maxim/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+ <link href="./Maxim/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+ <!-- Template Main CSS File -->
+
+ <link href="./Maxim/assets/css/style.css" rel="stylesheet">
+ <style>
+   /* html {
+  font-family: 'Lora', sans-serif;
+  width: 100%;
+}
+
+body {
+  margin: 5% auto 0 auto;
+  width: 90%;
+  max-width: 1125px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 2.5%;
+} */
+
+input,
+label span,
+label,
+textarea {
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 22px;
+}
+
+textarea:focus,
+input:focus {
+  outline: 0;
+}
+/* Question */
+
+input.question,
+textarea.question {
+  font-size: 48px;
+  font-weight: 300;
+  border-radius: 2px;
+  margin: 0;
+  border: none;
+  width: 80%;
+  background: rgba(0, 0, 0, 0);
+  transition: padding-top 0.2s ease, margin-top 0.2s ease;
+  overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+}
+/* Underline and Placeholder */
+
+input.question + label,
+textarea.question + label {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  width: 10%;
+  border-top: 1px solid red;
+  -webkit-transition: width 0.4s ease;
+  transition: width 0.4s ease;
+  height: 0px;
+}
+
+input.question:focus + label,
+textarea.question:focus + label {
+  width: 80%;
+}
+
+input.question:focus,
+input.question:valid {
+  padding-top: 35px;
+}
+
+textarea.question:valid,
+textarea.question:focus {
+  margin-top: 35px;
+}
+
+input.question:focus + label > span,
+input.question:valid + label > span {
+  top: -100px;
+  font-size: 22px;
+  color: #333;
+}
+
+textarea.question:focus + label > span,
+textarea.question:valid + label > span {
+  top: -150px;
+  font-size: 22px;
+  color: #333;
+}
+
+input.question:valid + label,
+textarea.question:valid + label {
+  border-color: green;
+}
+
+input.question:invalid,
+textarea.question:invalid {
+  box-shadow: none;
+}
+
+input.question + label > span,
+textarea.question + label > span {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  color: #8F8F8F;
+  font-size: 48px;
+  top: -66px;
+  left: 0px;
+  z-index: -1;
+  -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+
+#translateSubmit {
+  -webkit-transition: opacity 0.2s ease, background 0.2s ease;
+  transition: opacity 0.2s ease, background 0.2s ease;
+  display: block;
+  opacity: 0;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#translateSubmit:hover {
+  background: #EEE;
+}
+
+#translateSubmit:active {
+  background: #999;
+}
+
+input.question:valid ~ #translateSubmit, textarea.question:valid ~ #translateSubmit {
+  -webkit-animation: appear 1s forwards;
+  animation: appear 1s forwards;
+}
+
+input.question:invalid ~ #translateSubmit, textarea.question:invalid ~ #translateSubmit {
+  display: none;
+}
+
+@-webkit-keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+ </style>
+ <script>
+   let symbol = "<%=sample.alpImg%>";
+  function translateText(){
+    let text = $(".translateInput").val();
+    let pbody = $(".translateResult");
+    pbody.empty();
+    let arr = [];
+    if(text.length!=0){
+        for(let i = 0; i<text.length; i++){
+          if(text.charAt(i)==' '){
+            
+          } else{
+            text = text.toLowerCase();
+            let pos = text.charCodeAt(i)-97;
+            arr.push(pos);
+          }
+        }   
+    } else{
+      alert("Enter text");
+    }
+    console.log(arr);
+    let parts = symbol.split(",");
+    console.log(parts[0]);
+    for(let i = 0; i<arr.length; i++){
+        const html = `<div class="translateItems col-lg-1">
+              <img height = "125px" width = "100px" src="${parts[arr[i]]}" alt="">
+            </div>`;
+        pbody.append(html);
+    }
+    pbody.css('border', '2px solid black');
+
+  }
+
+</script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">Unify</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/dash#portfolio">Practice</a></li>
+          <li><a class="nav-link scrollto " href="/gesture">Talk With Signs</a></li>
+          <li class="dropdown"><a href="#" class="active"><span>Translate</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/translate">English To ASL</a></li>
+              <li><a href="/translateTwo">ASL to English</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/pagination">Common Words</a></li>
+          <li class="dropdown"><a href="#"><span>Connect</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/webinar">Webinar</a></li>
+              <li><a href="/forum">Forum</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
+          <li><a class="nav-link scrollto" href="/logout">Log Out</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main" style="min-height:100vh;">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Translate - English To ASL</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Translate</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+      <div class="container">
+        <form>
+          <!-- <input type="text" name="name" class="question" id="nme" required autocomplete="off" /> -->
+          <input type="text" name="translateInput" class="translateInput question" id="nme" required autocomplete="off">
+          <label for="nme"><span>Enter the phrase</span></label>
+          <!-- <input  placeholder="Enter text here"> -->
+          <button type="button" onclick="translateText()" class = "btn" name="translateSubmit" id="translateSubmit" style="background-color: #333; color: #fff;">Translate</button>
+          <!-- <input type="submit" value="Translate" onclick="translateText()" id="translateSubmit"/> -->
+        </form>
+        <div class="translateResult row">
+          
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <%- include ("./partials/footer.ejs") %>
+  <!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="./Maxim/assets/vendor/aos/aos.js"></script>
+  <script src="./Maxim/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./Maxim/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="./Maxim/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="./Maxim/assets/vendor/php-email-form/validate.js"></script>
+  <script src="./Maxim/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="./Maxim/assets/js/main.js"></script>
+
+</body>
+
+</html>
