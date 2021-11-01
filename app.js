@@ -142,7 +142,7 @@ app.get("/progress", isLoggedIn, async function(req, res){
 })
 app.get("/profile", isLoggedIn, async function(req, res){
 	const signData = await signs.getSign();
-	const userData = await users.getUserById(req.session.user_id);
+	const userData = await users.getUserById(req.user.id);
 	const usersData = await users.getUsers();
 	usersData.sort(function (a, b) {
 		return b.score - a.score;
@@ -161,7 +161,7 @@ app.get("/dash", isLoggedIn, async function(req, res){
 app.get("/practice/:symbol", isLoggedIn, async function(req, res){
 	// symbolll = req.params.symbol;
 	const data = await signs.getSign();
-	const user = await users.getUserById(req.session.user_id);
+	const user = await users.getUserById(req.user.id);
 	// console.log(user);
 	res.render("inner-page", {sample:data[0], symb: req.params.symbol, user});
 })

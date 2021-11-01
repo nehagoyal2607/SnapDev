@@ -119,11 +119,14 @@
                             </span>
                           </label>
                           <label class="field field_v2">
+                            <!-- <img  height = "110px" width = "110px"src="https://sdk.bitmoji.com/render/panel/20007889-ibGbC1GvGJr8qImAsIAdCoHTdZghIUjttbo5VQ_LVB~Uo4YrgV34Yw-v1.png?transparent=1&palette=1"> -->
                             <input type="text-area" class="field__input" id="bitmoji-input" name = "description" placeholder="e.g. Tell us about yourself" required>
                             <div class="my-bitmoji-stickerpicker-icon-target"></div>
                             <span class="field__label-wrap">
+                              
                               <span class="field__label">Description</span>
                             </span>
+                            
                           </label>    
                           
                         <input type='submit'class="btn btn-get-started" style="display: block;padding: 2px 25px"/>
@@ -167,7 +170,7 @@
     
       <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
       <script>
-        var inputField = document.querySelector("#bitmoji-input").value;
+        var inputField = document.querySelector("#bitmoji-input");
         console.log(inputField)
         window.snapKitInit = function () {
           // Argument 1
@@ -177,9 +180,9 @@
           var uiOptions = {
             onStickerPickCallback: function onStickerPickCallback(bitmojiImgURL) {
               const html = `<div>
-              <img src="${bitmojiImgURL}" alt="">
+              <img src="${bitmojiImgURL}" height = "110px" width = "110px"alt="">
             </div>`;
-            inputField = bitmojiImgURL;
+            inputField.innerHTML = html;
               console.log(bitmojiImgURL);
             },
             webpickerPosition: "topLeft",
