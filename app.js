@@ -162,8 +162,9 @@ app.get("/practice/:symbol", isLoggedIn, async function(req, res){
 	// symbolll = req.params.symbol;
 	const data = await signs.getSign();
 	const user = await users.getUserById(req.user.id);
+	const currentUser = req.user;
 	// console.log(user);
-	res.render("inner-page", {sample:data[0], symb: req.params.symbol, user});
+	res.render("inner-page", {sample:data[0], symb: req.params.symbol, user, currentUser:currentUser});
 })
 app.post("/login", async(req, res)=>{
 	const {username, password} = req.body;

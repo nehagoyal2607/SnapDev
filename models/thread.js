@@ -47,7 +47,7 @@ module.exports = {
       
       let thread = await threads.findOne({title:{$eq:title}});
       let arr = thread.comments;
-      arr.push(comment);
+      arr.unshift(comment);
     //   console.log(arr);
         // console.log(tthread);
         return await threads.update(docid, {
