@@ -182,16 +182,18 @@
               const html = `<div>
               <img src="${bitmojiImgURL}" height = "110px" width = "110px"alt="">
             </div>`;
-            inputField.innerHTML = html;
+            inputField.value = html;
+            inputField.style.backgroundImage = bitmojiImgURL
+            // document.getElementById("commentInputs").submit();
               console.log(bitmojiImgURL);
             },
-            webpickerPosition: "topLeft",
+            webpickerPosition: "right",
           };
           console.log(inputField)
           // Argument 3
           var loginParamsObj = {
             clientId: "b0165597-c84d-4eb7-91df-2f26b8534a5d",
-  
+            
             redirectURI: "http://localhost:3000/forum/hi",
             scopeList: [
               // the list of scopes you are approved for

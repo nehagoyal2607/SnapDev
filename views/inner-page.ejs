@@ -52,9 +52,11 @@
   const symb = "<%= symb %>";
   const symbol = "<%= sample.alphabet[symb] %>";
   const sscore = "<%=user.score%>";
+  const currentUserid = "<%=currentUser.bitmoji.avatarId%>"
   console.log(sscore);
 </script>
   <script type="text/javascript">
+
   // const axios = require('axios');
     // Classifier Variable
     let classifier;
@@ -131,7 +133,7 @@
     function display(){
     swal({
       title: "Sweet!",
-      imageUrl: 'https://i.imgur.com/4NZ6uLY.jpg'
+      imageUrl: 'https://sdk.bitmoji.com/render/panel/9991235-'+currentUserid+'-v1.png?transparent=1&palette=1'
     });
 };
     // Get a prediction for the current video frame
