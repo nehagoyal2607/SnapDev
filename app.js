@@ -20,7 +20,7 @@ require('dotenv').config();
 passport.use(new SnapchatStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/login/snapchat/callback',
+    callbackURL: 'https://unify-asl-app.herokuapp.com/login/snapchat/callback',
     profileFields: ['id', 'displayName', 'bitmoji'],
     scope: ['user.display_name', 'user.bitmoji.avatar'],
     pkce: true,
