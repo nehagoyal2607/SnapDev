@@ -4,7 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta property="og:site_name" content="Snapchat" />
+  <meta property="og:title" content="The Fastest Way to Share a Moment!" />
+  <!-- The following are optional -->
+  <meta
+    property="snap:sticker"
+    content="/imgs/sticker.png"
+  />
+  <meta property="snap:app_id" content="81d37598-2121-48ed-b5ba-39550fcb541f
+  " />
   <title>Home</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -164,7 +172,18 @@
   <!-- ======= Footer ======= -->
   <%- include ("./partials/footer.ejs") %>
   <!-- End Footer -->
-
+  <script>
+    // Load the SDK asynchronously
+    (function (d, s, id) {
+      var js,
+        sjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://sdk.snapkit.com/js/v1/create.js";
+      sjs.parentNode.insertBefore(js, sjs);
+    })(document, "script", "snapkit-creative-kit-sdk");
+  </script>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
