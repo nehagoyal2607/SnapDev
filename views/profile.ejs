@@ -124,9 +124,10 @@ svg {
         </div>
       </header><!-- End Header -->
       <main id="main">
-        <section class="breadcrumbs">
+        <section class="breadcrumbs" style="background-color: #a6bdff;">
             <div class="row px-4" >
-                <div class="col-md-6 mr-auto">
+              
+                <div class="col-md-6 ml-auto mr-auto">
                     <!-- Profile widget -->
                     <div class="bg-white shadow rounded overflow-hidden">
                         <div class="px-4 pt-0 pb-4 cover" style="height:8em">
@@ -151,22 +152,8 @@ svg {
                                 </li>
                             </ul>
                         </div> -->
-                        <div class="px-4 pt-5 pb-1">
-                            
-                            <div class="p-1 rounded shadow-sm bg-light">
-                                <h5 class="mb-0 mt-1 ml-1">Progress </span></h5>
-                                <div class="num">
-                                  <h2 style="position: absolute; margin-top: 0.2em; margin-left: 1em;"><%=(user.score/260*100).toFixed(0)%><span>%</span></h2>
-                                </div>
-                                <p class="font-italic mb-0" style="text-align: center;">
-                                    <svg style="margin:0">
-                                        <circle class="bg" cx="51" cy="51" r="45"></circle>
-                                        <circle class="meter-1" cx="63" cy="51" r="45" style="stroke-dashoffset: <%=270-(user.score/260*270)%>;"></circle>
-                                    </svg>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="py-1 px-4">
+                        
+                        <div class="px-4 pt-5 pb-1" >
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <h5 class="mb-0">Signs Conquered YAY!</h5><a href="/dash" class="btn btn-link text-muted">Practice More</a>
                             </div>
@@ -180,10 +167,25 @@ svg {
                                 <%}%>
                             </div>
                         </div>
+                        
                     </div>
-                </div>
-
-                <div class="col-md-6 my-auto ml-auto">
+                    <div class="py-1 px-8">
+                            
+                      <div class="p-1 rounded shadow-sm bg-light">
+                          <h5 class="mb-0 mt-1 ml-1">Progress </span></h5>
+                          <div class="num">
+                            <h2 style="position: absolute; margin-top: 0.2em; margin-left: 1em;"><%=(user.score/260*100).toFixed(0)%><span>%</span></h2>
+                          </div>
+                          <p class="font-italic mb-0" style="text-align: center;">
+                              <svg style="margin:0">
+                                  <circle class="bg" cx="51" cy="51" r="45"></circle>
+                                  <circle class="meter-1" cx="63" cy="51" r="45" style="stroke-dashoffset: <%=270-(user.score/260*270)%>;"></circle>
+                              </svg>
+                          </p>
+                      </div>
+                  </div>
+                  
+                
                     <div class="leaderboard-container" style="margin-right: 3em;
                     margin-left: auto;">
               
@@ -200,9 +202,11 @@ svg {
                         
                        
                     </div>
-                        
-                      
+                    
+                
                 </div>
+
+               
             </div>
         </section>
 
