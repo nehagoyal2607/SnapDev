@@ -10,10 +10,10 @@
   <meta content="" name="keywords">
   <meta property="og:site_name" content="Snapchat" />
   <meta property="og:title" content="The Fastest Way to Share a Moment!" />
-  <meta
+  <!-- <meta
     property="snap:sticker"
-    content="https://sdk.bitmoji.com/render/panel/20054902-"+ currentUser.bitmoji.avatarId +"-v1.png?transparent=1&palette=1"
-  />
+    content=`https://sdk.bitmoji.com/render/panel/20054902-${currentUser.bitmoji.avatarId-v1.png}?transparent=1&palette=1`
+  /> -->
   <meta property="snap:app_id" content="81d37598-2121-48ed-b5ba-39550fcb541f
   " />
   <!-- Favicons -->
@@ -34,6 +34,13 @@
  <!-- Template Main CSS File -->
 
  <link href="./Maxim/assets/css/style.css" rel="stylesheet">
+ <script>
+   const avatarId = "<%=avatarId%>"
+   var link = document.createElement('meta');
+    link.setAttribute('property', 'snap:sticker');
+    link.content = `https://sdk.bitmoji.com/render/panel/20054902-${avatarId}-v1.png?transparent=1&palette=1`
+    document.getElementsByTagName('head')[0].appendChild(link);
+ </script>
  <style>
    input[type="text"]{
     margin-bottom: 0.5em;
@@ -97,7 +104,7 @@
     <div class="container text-center text-md-left" data-aos="fade-in">
       <h1>Feel Connected</h1>
       <h2>Attend a webinar, or Host one!</h2>
-      <!-- <h2>Hey <%=currentUser.username%></h2> -->
+    
       <a href="#inner-page-webinar" class="btn-get-started scrollto" style="margin-right: 0.7em;">Begin</a>
     </div>
   </section><!-- End Hero -->

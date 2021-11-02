@@ -9,16 +9,16 @@
   <!-- The following are optional -->
   <meta
     property="snap:sticker"
-    content="/imgs/sticker.png"
+    content="/imgs/practicePageSolvedTrans.png"
   />
-  <meta
+  <!-- <meta
     property="snap:sticker"
     content="https://sdk.bitmoji.com/render/panel/10219618-"+ currentUser.bitmoji.avatarId +"-v1.png?transparent=1&palette=1"
   />
   <meta
     property="snap:sticker"
     content="https://sdk.bitmoji.com/render/panel/10219618-"+ currentUser.bitmoji.avatarId +"-v1.png?transparent=1&palette=1"
-  />
+  /> -->
   <meta property="snap:app_id" content="81d37598-2121-48ed-b5ba-39550fcb541f
   " />
   <title>Home</title>
@@ -42,6 +42,26 @@
 
   <!-- Template Main CSS File -->
   <link href="./Maxim/assets/css/style.css" rel="stylesheet">
+  <script>
+    const avatarId = "<%=avatarId%>"
+    var link = document.createElement('meta');
+     link.setAttribute('property', 'snap:sticker');
+     link.content = `https://sdk.bitmoji.com/render/panel/10219618-${avatarId}-v1.png?transparent=1&palette=1`
+     document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <script>
+    const score = "<%=score%>"
+    var link = document.createElement('meta');
+     link.setAttribute('property', 'snap:sticker');
+     if(score!=0){
+      link.content = `https://ootsvili.sirv.com/Images/practicePagSolvedTrans.png?text.0.text=My%20Score%20is%20${score}&text.0.position.gravity=north&text.0.position.y=23%25&text.0.size=42&text.0.font.family=Cookie" width="400" height="400" alt=""`
+     }else{
+      link.content = `https://ootsvili.sirv.com/Images/practicePagSolvedTrans.png?text.0.text=I%20am%20learning%20ASL&text.0.position.gravity=north&text.0.position.y=23%25&text.0.size=42&text.0.font.family=Cookie" width="400" height="400" alt=""`
+     }
+     
+     document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+ 
 </head>
 
 <body>
@@ -88,7 +108,7 @@
         <h1>Started.</h1>
         </div>
         <div class="d-flex pt-1">
-      <a href="/login" id = "loginWithSnapButton" class="btn-get-started scrollto" style="border-radius: 33px; padding-right: 5px;"><img src="/Maxim/assets/img/snapchat.png" height="50px" width="50px">Continue with Snapchat</a>
+      <a href="/login/snapchat" id = "loginWithSnapButton" class="btn-get-started scrollto" style="border-radius: 33px; padding-right: 5px;"><img src="/Maxim/assets/img/snapchat.png" height="50px" width="50px">Continue with Snapchat</a>
     </div>
   </div>
 </section><!-- End Hero -->

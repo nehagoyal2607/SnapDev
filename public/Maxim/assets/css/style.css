@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6 {
 #loginWithSnapButton:hover{
   background-color: #fff !important;
   color: #000 !important;
+  
+}
+#loginWithSnapButton:hover img{
+  transform: scale(1.3);
 }
 #loginWithSnapButton > img{
   padding: 8px;

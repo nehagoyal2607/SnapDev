@@ -7,7 +7,19 @@
   <title>Translator</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  <meta property="og:site_name" content="Snapchat" />
+  <meta property="og:title" content="The Fastest Way to Share a Moment!" />
+  <!-- The following are optional -->
+  <meta
+    property="snap:sticker"
+    content="/imgs/practicePageDefaultTrans.png"
+  />
+  <meta
+  property="snap:sticker"
+  content="/imgs/talkWithSignsTrans – 1.png"
+/>
+  <meta property="snap:app_id" content="81d37598-2121-48ed-b5ba-39550fcb541f
+  " />
  <!-- Favicons -->
  <link href="./Maxim/assets/img/favicon.png" rel="icon">
  <link href="./Maxim/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -199,6 +211,13 @@
     <p  id="phrase"></p>
     
   </div>
+        <div
+        class="snapchat-creative-kit-share"
+        data-theme="dark"
+        data-size="large"
+        data-text="false"
+        data-share-url="https://unify-asl-app.herokuapp.com/gesture"
+      ></div>
       <i class="speaker bi bi-volume-up-fill" style="font-size:2.2em; text-align: center; color: #fff; background-color: #212529; margin-top: 3px; padding-left: 7px; padding-right: 7px; border-radius: 24px;" onclick="textToAudio()"></i>
   </div>
   
@@ -208,6 +227,19 @@
   <!-- ======= Footer ======= -->
   <%- include ("./partials/footer.ejs") %>
   <!-- End Footer -->
+  <script>
+    // Load the SDK asynchronously
+    
+    (function (d, s, id) {
+      var js,
+        sjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://sdk.snapkit.com/js/v1/create.js";
+      sjs.parentNode.insertBefore(js, sjs);
+    })(document, "script", "snapkit-creative-kit-sdk");
+  </script>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
   <script src="./Maxim/assets/vendor/aos/aos.js"></script>
