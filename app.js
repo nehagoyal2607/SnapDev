@@ -294,7 +294,7 @@ app.get("/", async function(req, res){
 	
 	const sample = await words.getSign();
 	const avatarId = req.user?req.user.bitmoji.avatarId:"";
-	const score = 0;
+	var score = 0;
 	if(req.user){
 		const user = await users.getUserById(req.user.id);
 		score = user.score
