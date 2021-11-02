@@ -24,6 +24,7 @@ require('dotenv').config();
 passport.use(new SnapchatStrategy({
 	clientID: process.env.CLIENT_ID,
 	clientSecret: process.env.CLIENT_SECRET,
+	// callbackURL: 'http://localhost:3000/login/snapchat/callback',
 	callbackURL: 'https://unisign-330911.el.r.appspot.com/login/snapchat/callback',
 	profileFields: ['id', 'displayName', 'bitmoji'],
 	scope: ['user.display_name', 'user.bitmoji.avatar'],
@@ -255,7 +256,7 @@ app.get("/forum", isLoggedIn, async function(req, res){
 	res.render("forum", {threads:threadData});
 })
 app.post("/forum/:id/addComment", isLoggedIn, async function(req, res){
-	const user = await users.getUserById(req.session.user_id);
+	const user = await users.getUserById(req.user.id);
 	const author = user.username;
 	await threads.addComment(req.params.id, {
 		title:req.body.title,
@@ -267,6 +268,7 @@ app.post("/forum/:id/addComment", isLoggedIn, async function(req, res){
 })
 app.get("/forum/:id", isLoggedIn, async function(req, res){
 	const data = await threads.getThreadByTitle(req.params.id);
+	console.log(data);
 	res.render("comments", {data:data});
 })
 app.get("/gesture", async function(req, res){
