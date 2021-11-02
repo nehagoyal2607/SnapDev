@@ -700,8 +700,13 @@ section {
 }
 
 .section-bg {
-  /* background-color: #FFFC00;  #a6bdff #fdebff */
-  background-color: #a6bdff;
+  
+  /* background-color: #a6bdff; */
+  background-image: radial-gradient(#fffafa 20px, #a6bdff 60px);
+  background-position: left;
+  background-size: 300px 300px;
+  height: 100%;
+  width: 100%;
 }
 
 .section-title {
