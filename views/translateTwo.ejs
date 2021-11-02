@@ -32,19 +32,19 @@
    function translateTwo(alpIndex){
         console.log(alpIndex);
         const alphabet = symbol[alpIndex];   
-        let pbody = $(".translateResult");
+        let pbody = $(".translateResult2");
         const html = `<div>${alphabet}</div>`;
         pbody.append(html);
    }
    function clearDiv(){
-        $(".translateResult").empty();
+        $(".translateResult2").empty();
    }
    function clearLastLetter(){
-        $(".translateResult > div").last().remove();
+        $(".translateResult2 > div").last().remove();
    }
    function insertSpace(){
        const html = "<div>&nbsp</div>";
-       $(".translateResult").append(html);
+       $(".translateResult2").append(html);
    }
 //    if ($('#data > div').length > 1) {
 //    $('#data > div').last().remove();
@@ -94,7 +94,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
+    <!-- <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
@@ -106,15 +106,15 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section> -->
+    <!-- End Breadcrumbs Section -->
 
-    <section class="inner-page">
-      <div class="container">
+    <section class="inner-page section-bg">
+      <div class="container" style="padding-top: 30px;">
           <button type="button" onclick="clearDiv()" class="btn btn-outline-dark">Clear</button>
           <button type="button" onclick="clearLastLetter()" class="btn btn-outline-dark">Delete last letter</button>
           <button type="button" onclick="insertSpace()" class="btn btn-outline-dark">Space</button>
-
-        <div class="translateResult" style="font-family:'Ubuntu', sans-serif; font-size: 22px; text-transform: uppercase;">
+        <div class="translateResult2" style="font-family:'Ubuntu', sans-serif; font-size: 22px; text-transform: uppercase;">
           
         </div>
       </div>

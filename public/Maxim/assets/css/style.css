@@ -27,6 +27,25 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+#loginWithSnapButton{
+  background-color: #000;
+  text-transform: none !important;
+  padding: 5px 10px !important;
+  margin: none !important;
+  color: #fff;
+}
+#loginWithSnapButton:hover{
+  background-color: #fff !important;
+  color: #000 !important;
+}
+#loginWithSnapButton > img{
+  padding: 8px;
+  border: #000;
+}
+.phrasediv > #phrase{
+  font-family: "Graphik", sans-serif;
+  text-transform: uppercase;
+}
 .back-to-top {
   position: fixed;
   visibility: hidden;
@@ -64,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .sign-img-left, .sign-img-right{
   height: 400px;
   width: 350px;
-  background-color: #14806c;
+  background-color: #000;
 }
 .sign-img-left{
   margin-left: 2em;
@@ -116,6 +135,7 @@ canvas{
   border-color: #1bac91 !important;
   background: #1bac91 !important;
 }
+
 .portfolio-info .btn-get-started {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
@@ -184,8 +204,18 @@ canvas{
 }
 .translateResult{
   margin-top: 2em;
-  max-width: 1116px;
+  width: 800px;
   min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 0.8;
+}
+.translateResult2{
+  margin-top: 2em;
+  max-width: 1116px;
+  /* min-height: 150px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,7 +257,7 @@ canvas{
   /* min-height: 200px;
   width: 400px; */
   /* background-color: rgb(242 242 242 / 58%); */
-  background-color: #1bac91;
+  background-color: #313131;
   color: #fff;
   padding: 1em;
   margin: auto;
@@ -266,7 +296,7 @@ canvas{
   display: none;
 }
 .container-top{
-  margin-top: 5em;
+  margin-top: 0em;
 }
 .container-top .btn-get-started {
   font-family: "Raleway", sans-serif;
@@ -578,7 +608,7 @@ canvas{
 #hero {
   width: 100%;
   height: calc(100vh - 70px);
-  background: url("../img/hero-bg.jpg") center center;
+  background: url("../img/hero-bg.jpg") bottom center;
   background-size:cover;
   position: relative;
   margin-top: 70px;

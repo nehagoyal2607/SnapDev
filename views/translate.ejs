@@ -206,7 +206,7 @@ input.question:invalid ~ #translateSubmit, textarea.question:invalid ~ #translat
     let parts = symbol.split(",");
     console.log(parts[0]);
     for(let i = 0; i<arr.length; i++){
-        const html = `<div class="translateItems col-lg-1">
+        const html = `<div class="translateItems col-lg-2">
               <img height = "125px" width = "100px" src="${parts[arr[i]]}" alt="">
             </div>`;
         pbody.append(html);
@@ -216,6 +216,7 @@ input.question:invalid ~ #translateSubmit, textarea.question:invalid ~ #translat
   }
 
 </script>
+
 </head>
 
 <body>
@@ -262,11 +263,12 @@ input.question:invalid ~ #translateSubmit, textarea.question:invalid ~ #translat
     <!-- ======= Breadcrumbs Section ======= -->
     <!-- End Breadcrumbs Section -->
 
-    <section class="inner-page section-bg" style="min-height: 100vh;">
+    <section class="inner-page section-bg" style="min-height: 100vh; padding-top: 100px;">
       <div class="container">
+        <div class="d-flex">
         <form>
           <!-- <input type="text" name="name" class="question" id="nme" required autocomplete="off" /> -->
-          <input type="text" name="translateInput" class="translateInput question" id="nme" required autocomplete="off">
+          <input type="text" name="translateInput" class="translateInput question" id="nme" required autocomplete="off" placeholder="Enter text">
           <label for="nme"><span>Enter the phrase</span></label>
           <!-- <input  placeholder="Enter text here"> -->
           <button type="button" onclick="translateText()" class = "btn" name="translateSubmit" id="translateSubmit" style="background-color: #333; color: #fff;">Translate</button>
@@ -274,6 +276,7 @@ input.question:invalid ~ #translateSubmit, textarea.question:invalid ~ #translat
         </form>
         <div class="translateResult row">
           
+        </div>
         </div>
       </div>
     </section>

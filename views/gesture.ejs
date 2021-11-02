@@ -115,6 +115,10 @@
       .mainDivContainer{
         /* flex-direction: column; */
         /* margin: auto; */
+        flex-direction: column;
+      }
+      #phrasediv{
+        
       }
       #video-container{
         /* min-width: 300px;
@@ -170,7 +174,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
+    <!-- <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
@@ -182,9 +186,10 @@
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section> -->
+    <!-- End Breadcrumbs Section -->
 
-  <div class="mainDivContainer d-flex justify-content-center align-items-center" style="margin: auto;">
+  <div class="mainDivContainer d-flex justify-content-center align-items-center" style="margin: auto; background-color: #a6bdff; height: 100vh;">
   <div id="video-container" class="p-3 m-4">
     <video id="pose-video" class="layer" playsinline></video>
     <canvas id="pose-canvas" class="layer"></canvas>
@@ -194,7 +199,7 @@
     <p  id="phrase"></p>
     
   </div>
-      <i class="speaker bi bi-volume-up-fill" style="font-size:2.2em; text-align: center;" onclick="textToAudio()"></i>
+      <i class="speaker bi bi-volume-up-fill" style="font-size:2.2em; text-align: center; color: #fff; background-color: #212529; margin-top: 3px; padding-left: 7px; padding-right: 7px; border-radius: 24px;" onclick="textToAudio()"></i>
   </div>
   
   </div>
