@@ -24,7 +24,7 @@ require('dotenv').config();
 passport.use(new SnapchatStrategy({
 	clientID: process.env.CLIENT_ID,
 	clientSecret: process.env.CLIENT_SECRET,
-	callbackURL: 'http://localhost:3000/login/snapchat/callback',
+	callbackURL: 'https://unify-asl-app.herokuapp.com/login/snapchat/callback',
 	profileFields: ['id', 'displayName', 'bitmoji'],
 	scope: ['user.display_name', 'user.bitmoji.avatar'],
 	pkce: true,
@@ -73,7 +73,7 @@ const isLoggedIn = function(req,res,next){
 		// if(req.session){
 		// 	req.session.redirectUrl = req.headers.referer || req.originalUrl || req.url;
 		// }
-		res.redirect('/login');
+		res.redirect('/login/snapchat');
 	}else{
 		next();
 	}
@@ -108,19 +108,27 @@ app.get("/login", function(req, res){
 // app.get("/inner", function(req, res){
 // 	res.render("inner-page");
 // })
-app.get("/index", function(req, res){
-	res.render("index");
+app.get("/index", async function(req, res){
+	const avatarId = req.user?req.user.bitmoji.avatarId:"";
+	const score = 0;
+	if(req.user){
+		const user = await users.getUserById(req.user.id);
+		score = user.score
+	}
+	
+	res.render("index", {avatarId:avatarId, score:score});
 })
 app.get("/pagination", async function(req, res){
 	const sample = await words.getSign();
 	res.render("pagination", {words: sample});
 })
-app.get("/webinar", isLoggedIn, async function(req, res){
+app.get("/webinar", async function(req, res){
 	const webinars = await webs.getWebinars();
 	// console.log(webinars);
-	res.render("webinar", {webinars:webinars});
+	const avatarId = req.user?req.user.bitmoji.avatarId:"";
+	res.render("webinar", {webinars:webinars, avatarId:avatarId});
 })
-app.get("/webinar/:id", isLoggedIn, async function(req, res){
+app.get("/webinar/:id", async function(req, res){
 	res.render("live", {meetingId:req.params.id});
 })
 app.get("/translate", async function(req, res){
@@ -221,7 +229,7 @@ app.post("/update", async function(req, res){
 	await users.updateScore(req.session.user_id, req.body.score, req.body.symbol);
 	console.log("updated");
 })
-app.post("/addWebinar", async function(req, res){
+app.post("/addWebinar", isLoggedIn, async function(req, res){
 	const newWeb = await webs.addWebinar({
 		title:req.body.title,
 		meetingId:req.body.meetingId,
@@ -285,11 +293,16 @@ app.get("/", async function(req, res){
 	// });
 	
 	const sample = await words.getSign();
-	if(req.session.user_id!=null){
-		res.redirect("dash");
-	} else{
-		res.render("index", {words: sample});
+	const avatarId = req.user?req.user.bitmoji.avatarId:"";
+	var score = 0;
+	if(req.user){
+		const user = await users.getUserById(req.user.id);
+		score = user.score
 	}
+	
+	res.render("index", {avatarId:avatarId, score:score,words: sample});
+		// res.render("index", {words: sample});
+	
   	
 })
 const port = process.env.PORT || 3000
