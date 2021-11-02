@@ -701,14 +701,16 @@ section {
 
 .section-bg {
   
-  /* background-color: #a6bdff; */
+  background-color: #a6bdff;
+  
+}
+.section-bgg{
   background-image: radial-gradient(#fffafa 20px, #a6bdff 60px);
   background-position: left;
   background-size: 300px 300px;
   height: 100%;
   width: 100%;
 }
-
 .section-title {
   padding-bottom: 40px;
   text-align: center;

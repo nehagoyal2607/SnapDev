@@ -65,14 +65,14 @@
         <div class="container d-flex justify-content-between">
     
           <div class="logo">
-            <h1><a href="index.html"></a></h1>
+            <h1><a href="/">UniSign</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
           </div>
     
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto" href="/">Dashboard</a></li>
+              <li><a class="nav-link scrollto" href="/dash">Dashboard</a></li>
               <li class="dropdown"><a href="#"><span>Learn</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><a class="nav-link scrollto " href="/gesture">ASL to Speech</a></li>
@@ -124,6 +124,7 @@
                           </label>
                           <label class="field field_v2">
                             <!-- <img  height = "110px" width = "110px"src="https://sdk.bitmoji.com/render/panel/20007889-ibGbC1GvGJr8qImAsIAdCoHTdZghIUjttbo5VQ_LVB~Uo4YrgV34Yw-v1.png?transparent=1&palette=1"> -->
+                            
                             <input type="text-area" class="field__input" id="bitmoji-input" name = "description" placeholder="e.g. Tell us about yourself" required>
                             <div class="my-bitmoji-stickerpicker-icon-target"></div>
                             <span class="field__label-wrap">
@@ -132,7 +133,9 @@
                             </span>
                             
                           </label>    
-                          
+                          <!-- <br/>
+                          <input type="text-area" class="field__input" id="bitmoji-input" name = "description" placeholder="e.g. Tell us about yourself" required>
+                          <div class="my-bitmoji-stickerpicker-icon-target"></div> -->
                         <input type='submit'class="btn btn-get-started" style="display: block;padding: 2px 25px"/>
                     </form>
                 </div>
@@ -191,14 +194,14 @@
             // document.getElementById("commentInputs").submit();
               console.log(bitmojiImgURL);
             },
-            webpickerPosition: "right",
+            webpickerPosition: "bottomMiddle",
           };
           console.log(inputField)
           // Argument 3
           var loginParamsObj = {
             clientId: "b0165597-c84d-4eb7-91df-2f26b8534a5d",
-            
-            redirectURI: "https://unisign-330911.el.r.appspot.com/forum/hi",
+            redirectURI:"http://localhost:3000/forum/hi",
+            // redirectURI: "https://unisign-330911.el.r.appspot.com/forum/hi",
             scopeList: [
               // the list of scopes you are approved for
               "user.bitmoji.avatar",

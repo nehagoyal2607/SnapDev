@@ -52,7 +52,7 @@
   const symb = "<%= symb %>";
   const symbol = "<%= sample.alphabet[symb] %>";
   const sscore = "<%=user.score%>";
-  const currentUserid = "<%=currentUser.bitmoji.avatarId%>"
+  
   console.log(sscore);
 </script>
   <script type="text/javascript">
@@ -177,7 +177,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="/">Dashboard</a></li>
+          <li><a class="nav-link scrollto" href="/dash">Dashboard</a></li>
           <li class="dropdown"><a href="#"><span>Learn</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a class="nav-link scrollto " href="/gesture">ASL to Speech</a></li>
@@ -244,10 +244,9 @@
       data-text="false"
       data-share-url="https://unisign-330911.el.r.appspot.com/"
     ></div>
+
           <div>
-            <p>
-              
-            </p>
+            <img id="mysticker" width="200px" height="200px">
           </div>
           <div>  
             <p class="btn-get-started scrollto" id = "statusBtn">Unsolved</p>
@@ -271,6 +270,11 @@
   <%- include ("./partials/footer.ejs") %>
   <!-- End Footer -->
   <!-- Vendor JS Files -->
+  <script>
+    const avatarId = "<%=currentUser.bitmoji.avatarId%>"
+    var link = "https://sdk.bitmoji.com/render/panel/10219618-"+avatarId+"-v1.png?transparent=1&palette=1"
+     document.getElementById('mysticker').src = link;
+  </script>
   <script>
     // Load the SDK asynchronously
     (function (d, s, id) {
